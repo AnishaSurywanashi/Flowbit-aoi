@@ -15,30 +15,35 @@ This template provides a minimal setup to get React working in Vite with HMR and
   • Writing clean, maintainable, production-ready code
   
 ## 🚀 Features
-🎨 Pixel-perfect UI
+ 🎨 Pixel-perfect UI
   • Follows Figma design exactly
   • Responsive layout
   • Clean Tailwind styling
-🗺️ Map Integration
+  
+ 🗺️ Map Integration
    • Leaflet-powered interactive map
    • Base map + WMS satellite imagery
    • Labels-only layer for clarity
    • Custom zoom + reset controls
    • Scale bar included
-🎛️ AOI Panel
+   
+ 🎛️ AOI Panel
   • WMS toggle
   • Search placeholder
   • Shapefile upload placeholder
-🧭 Sidebar
+  
+ 🧭 Sidebar
   • Minimal fixed-width design
   • Icon-only interface with tooltips
-🧪 Testing
+  
+ 🧪 Testing
   •  Playwright tests for UI and WMS layer behavior
   
 ## 📘 README Documentation
   # 🗺️ Map Library Choice
    I selected Leaflet (react-leaflet) as the map library because it provides native support for WMS layers,    which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
    integrates smoothly with React.
+   
   ✖ Alternatives Considered:
      | Library                   | Why Not Selected                             |
      | ------------------------- | -------------------------------------------- |
@@ -46,10 +51,10 @@ This template provides a minimal setup to get React working in Vite with HMR and
      | **OpenLayers**            | Very powerful but too complex for this scope |
      | **react-map-gl / Mapbox** | Vector-first, not suited for WMS             |
 
-    📌 Leaflet provided the best balance of power, simplicity, and WMS support.
+  📌 Leaflet provided the best balance of power, simplicity, and WMS support.
     
-  ## 🏗️ Architecture Decisions
-     The app uses a clean, modular structure:
+## 🏗️ Architecture Decisions
+  The app uses a clean, modular structure:
     📁 Component Breakdown  
       1. Sidebar – app navigation
       2. AOIPanel – WMS toggle + AOI actions
@@ -73,23 +78,23 @@ This template provides a minimal setup to get React working in Vite with HMR and
        •  Easy to extend in the future
        • Keeps map logic isolated for performance
        • Avoids prop drilling using React Context
-  ## 🧩 Architecture Diagram
-      <img width="1434" height="1118" alt="image" src="https://github.com/user-attachments/assets/c606eda2-3750-46cf-84e0-31d35d0ee368" />
-  ## ⚡ Performance Considerations
-      ✔ Current optimizations:
+ 
+
+ ## ⚡ Performance Considerations
+  ✔ Current optimizations:
         • Leaflet tile-based rendering
         • Minimal global state to reduce re-renders
         • Map instance created only once
         • Labels-only layer on top of satellite WMS
         • Conditional rendering of WMS layer
 
-      ✔ Future enhancements:
+   ✔ Future enhancements:
          • Marker clustering
          • Canvas/WebGL rendering for large datasets
          • Debounced pan/zoom events
          • Lazy loading AOI data
-  ## 🧪Testing Strategy
-       ✔ Implemented Tests
+## 🧪Testing Strategy
+  ✔ Implemented Tests
        1. App Load Test
           Ensures Sidebar, AOIPanel, and Map render correctly
       2. WMS Toggle Test
@@ -99,7 +104,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
           ✓  1 src\tests\app.spec.ts:4:1 › App loads correctly with sidebar, AOI panel, and map (646ms)
           ✓  2 src\tests\app.spec.ts:28:1 › Layer toggle hides and shows WMS overlay tiles (1.1s)
 
-       ✔ Why these tests?
+   ✔ Why these tests?
           They validate the core acceptance criteria:
            • UI loads
            • Map loads
@@ -111,13 +116,14 @@ This template provides a minimal setup to get React working in Vite with HMR and
            • Component unit tests
            • Accessibility tests (keyboard navigation, ARIA roles)
            • Visual regression screenshot testing
- ## 🔄 Tradeoffs Made
+    ## 🔄 Tradeoffs Made
         • Used React Context instead of Zustand/Redux because state requirements were small.
         • Added a labels-only tile layer instead of custom text rendering for clarity.
         • Did not implement drawing tools due to time limitations.
         • Kept UI minimal and strictly matched to Figma without extra features.
+        
 ## 🚀 Production Readiness
-       To prepare this project for production:
+  To prepare this project for production:
         • Add LocalStorage/state persistence for AOIs
         • Add WMS tile error handling
         • Add loading indicators for map tiles
