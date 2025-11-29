@@ -1,75 +1,170 @@
-# React + TypeScript + Vite
+# 📌 Flowbit AOI Creation Interface
+This project is a complete, pixel-perfect implementation of the AOI (Area of Interest) Creation Interface, built as part of the Flowbit Frontend Engineer Internship Assignment. The goal of this project is to translate the provided Figma design into a functional, responsive, and interactive single-page application using modern frontend technologies.
+
+The application enables users to explore a real-world map, view high-resolution WMS satellite imagery, toggle map layers, and interact with a clean, Figma-accurate UI. It is built using React, TypeScript, Vite, Tailwind CSS, and Leaflet, with client-side state management handled using React Context. Automated UI testing is implemented using Playwright, ensuring the correctness of key map interactions.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+-- This project demonstrates strong skills in:
+  • Converting Figma prototypes into real UI
+  • Integrating WMS-based satellite imagery
+  • Building custom map controls
+  • Structuring components cleanly
+  • Implementing lightweight global state
+  • Ensuring stability with automated testing
+  • Writing clean, maintainable, production-ready code
+  
+## 🚀 Features
+🎨 Pixel-perfect UI
+  • Follows Figma design exactly
+  • Responsive layout
+  • Clean Tailwind styling
+🗺️ Map Integration
+   • Leaflet-powered interactive map
+   • Base map + WMS satellite imagery
+   • Labels-only layer for clarity
+   • Custom zoom + reset controls
+   • Scale bar included
+🎛️ AOI Panel
+  • WMS toggle
+  • Search placeholder
+  • Shapefile upload placeholder
+🧭 Sidebar
+  • Minimal fixed-width design
+  • Icon-only interface with tooltips
+🧪 Testing
+  •  Playwright tests for UI and WMS layer behavior
+  
+## 📘 README Documentation
+  # 🗺️ Map Library Choice
+   I selected Leaflet (react-leaflet) as the map library because it provides native support for WMS layers,    which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
+   integrates smoothly with React.
+  ✖ Alternatives Considered:
+     | Library                   | Why Not Selected                             |
+     | ------------------------- | -------------------------------------------- |
+     | **MapLibre GL**           | Best for vector tiles, limited WMS support   |
+     | **OpenLayers**            | Very powerful but too complex for this scope |
+     | **react-map-gl / Mapbox** | Vector-first, not suited for WMS             |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    📌 Leaflet provided the best balance of power, simplicity, and WMS support.
+    
+  ## 🏗️ Architecture Decisions
+     The app uses a clean, modular structure:
+    📁 Component Breakdown  
+      1. Sidebar – app navigation
+      2. AOIPanel – WMS toggle + AOI actions
+      3. MapView – base map, WMS layer, labels layer, custom map controls
+      4. AppContext – global state management
+      5. Tests folder – Playwright tests
+    ## 📁 Folder Structure
+           src/
+            ├─ Components/
+            │   ├─ Sidebar.tsx
+            │   ├─ AOIPanel.tsx
+            │   └─ MapView.tsx
+            ├─ context/
+            │   └─ AppContext.tsx
+            ├─ tests/
+            │   └─ app.spec.ts
+            ├─ App.tsx
+            └─ main.tsx
+  -- Why this structure?
+       • Clear separation of concerns
+       •  Easy to extend in the future
+       • Keeps map logic isolated for performance
+       • Avoids prop drilling using React Context
+  ## 🧩 Architecture Diagram
+      <img width="1434" height="1118" alt="image" src="https://github.com/user-attachments/assets/c606eda2-3750-46cf-84e0-31d35d0ee368" />
+  ## ⚡ Performance Considerations
+      ✔ Current optimizations:
+        • Leaflet tile-based rendering
+        • Minimal global state to reduce re-renders
+        • Map instance created only once
+        • Labels-only layer on top of satellite WMS
+        • Conditional rendering of WMS layer
 
-## React Compiler
+      ✔ Future enhancements:
+         • Marker clustering
+         • Canvas/WebGL rendering for large datasets
+         • Debounced pan/zoom events
+         • Lazy loading AOI data
+  ## 🧪Testing Strategy
+       ✔ Implemented Tests
+       1. App Load Test
+          Ensures Sidebar, AOIPanel, and Map render correctly
+      2. WMS Toggle Test
+         Verifies tile count changes when toggled
+         Below 2 tests are performed
+          Running 2 tests using 1 worker
+          ✓  1 src\tests\app.spec.ts:4:1 › App loads correctly with sidebar, AOI panel, and map (646ms)
+          ✓  2 src\tests\app.spec.ts:28:1 › Layer toggle hides and shows WMS overlay tiles (1.1s)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+       ✔ Why these tests?
+          They validate the core acceptance criteria:
+           • UI loads
+           • Map loads
+           • WMS visibility works
+       ➕ Additional tests with more time:
+           • AOI drawing tools
+           • Search/geocoding behavior
+           • File upload interactions
+           • Component unit tests
+           • Accessibility tests (keyboard navigation, ARIA roles)
+           • Visual regression screenshot testing
+ ## 🔄 Tradeoffs Made
+        • Used React Context instead of Zustand/Redux because state requirements were small.
+        • Added a labels-only tile layer instead of custom text rendering for clarity.
+        • Did not implement drawing tools due to time limitations.
+        • Kept UI minimal and strictly matched to Figma without extra features.
+## 🚀 Production Readiness
+       To prepare this project for production:
+        • Add LocalStorage/state persistence for AOIs
+        • Add WMS tile error handling
+        • Add loading indicators for map tiles
+        • Optimize caching for faster WMS loading
+        • Improve accessibility (keyboard + ARIA)
+        • Add authentication if needed
+        • Expand Playwright test suite
+## ⏱️ Time Spent (Approx Breakdown)
+      | Task                                 | Time       |
+      | ------------------------------------ | ---------- |
+      | Figma-to-UI (Sidebar + AOI Panel)    | **3 hrs**  |
+      | Map Setup (Leaflet + WMS + Controls) | **3 hrs**  |
+      | Labels-only layer + clarity fixes    | **1 hr**   |
+      | State Management (React Context)     | **30 min** |
+      | Playwright Tests                     | **2 hrs**  |
+      | Debugging + Pixel-Perfect Updates    | **2 hrs**  |
+      | Final Documentation (README)         | **1 hr**   |
+  Total Time: ~12.5–13 hours
+## 📡 API Documentation
+    This project is frontend-only, so there are no internal API routes.
+    However, the assignment requires API documentation, so we document the external map service and client-     side actions that behave like API calls.
+    🌍 External WMS API (Used by MapView)
+    ]      | Feature          | Details                                      |
+           | ---------------- | -------------------------------------------- |
+           | **Name**         | NRW Digital Orthophotos (WMS)                |
+           | **Base URL**     | `https://www.wms.nrw.de/geobasis/wms_nw_dop` |
+           | **Type**         | WMS (Web Map Service)                        |
+           | **Layer Used**   | `nw_dop_rgb`                                 |
+           | **Format**       | `image/png`                                  |
+           | **Projection**   | `EPSG:3857`                                  |
+           | **Transparency** | Supported (`transparent=true`)               |
+           | **Rendered By**  | Leaflet `WMSTileLayer`                       |
+  ## 🔧 Setup Steps
+     Follow these steps to run the project locally:
+      # 1. Clone the repository
+        git clone https://github.com/AnishaSurywanashi/Flowbit-aoi.git
+        cd Flowbit-aoi
 
-Note: This will impact Vite dev & build performances.
+      # 2. Install dependencies
+        npm install
 
-## Expanding the ESLint configuration
+     # 3. Start development server
+        npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+     # 4. Run Playwright tests
+        npx playwright test
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
