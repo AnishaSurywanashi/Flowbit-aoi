@@ -46,12 +46,13 @@ The application enables users to explore a real-world map, view high-resolution 
       which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
       integrates smoothly with React.
    
-     ✖ Alternatives Considered:
-      | Library                   | Why Not Selected                             |
-      |---------------------------|----------------------------------------------|
-      | MapLibre GL               |Best for vector tiles, limited WMS support    |
-      | OpenLayers                | Very powerful but too complex for this scope |
-      | react-map-gl / Mapbox     | Vector-first, not suited for WMS             |
+✖ Alternatives Considered:
+| Library                   | Reason Not Selected                                 |
+|---------------------------|-----------------------------------------------------|
+| **MapLibre GL**           | Excellent for vector tiles, but weak WMS support    |
+| **OpenLayers**            | Very powerful but too complex for this project      |
+| **react-map-gl / Mapbox** | Vector-first; WMS not supported without workarounds |
+
 
 
   📌 Leaflet provided the best balance of power, simplicity, and WMS support.
