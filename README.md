@@ -41,10 +41,9 @@ The application enables users to explore a real-world map, view high-resolution 
   
 ## 📘 README Documentation
  
-    # 🗺️ Map Library Choice
-      I selected Leaflet (react-leaflet) as the map library because it provides native support for WMS layers,   
-      which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
-      integrates smoothly with React.
+# 🗺️ Map Library Choice
+  I selected Leaflet (react-leaflet) as the map library because it provides native support for WMS layers,    which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
+  integrates smoothly with React.
    
 ✖ Alternatives Considered:
 | Library                   | Reason Not Selected                                 |
@@ -53,9 +52,7 @@ The application enables users to explore a real-world map, view high-resolution 
 | **OpenLayers**            | Very powerful but too complex for this project      |
 | **react-map-gl / Mapbox** | Vector-first; WMS not supported without workarounds |
 
-
-
-  📌 Leaflet provided the best balance of power, simplicity, and WMS support.
+ 📌 Leaflet provided the best balance of power, simplicity, and WMS support.
     
 ## 🏗️ Architecture Decisions
 
@@ -142,31 +139,32 @@ The application enables users to explore a real-world map, view high-resolution 
         • Expand Playwright test suite
         
 ## ⏱️ Time Spent (Approx Breakdown)
-      | Task                                 | Time       |
-      | ------------------------------------ | ---------- |
-      | Figma-to-UI (Sidebar + AOI Panel)    | **3 hrs**  |
-      | Map Setup (Leaflet + WMS + Controls) | **3 hrs**  |
-      | Labels-only layer + clarity fixes    | **1 hr**   |
-      | State Management (React Context)     | **30 min** |
-      | Playwright Tests                     | **2 hrs**  |
-      | Debugging + Pixel-Perfect Updates    | **2 hrs**  |
-      | Final Documentation (README)         | **1 hr**   |
+| Task                                   | Time Spent |
+|----------------------------------------|------------|
+| Figma-to-UI (Sidebar + AOI Panel)      | **3 hrs**  |
+| Map Setup (Leaflet + WMS + Controls)   | **3 hrs**  |
+| Labels-only layer + clarity fixes      | **1 hr**   |
+| State Management (React Context)       | **30 min** |
+| Playwright Tests                       | **2 hrs**  |
+| Debugging + Pixel-Perfect Updates      | **2 hrs**  |
+| Final Documentation (README)           | **1 hr**   |
+
   Total Time: ~12.5–13 hours
 ## 📡 API Documentation
-    This project is frontend-only, so there are no internal API routes.
-    However, the assignment requires API documentation, so we document the external map service and client-     side actions that behave like API calls.
-    🌍 External WMS API (Used by MapView)
-    ]      | Feature          | Details                                      |
-           | ---------------- | -------------------------------------------- |
-           |   Name           | NRW Digital Orthophotos (WMS)                |
-           |   Base URL       | `https://www.wms.nrw.de/geobasis/wms_nw_dop` |
-           |   Type           | WMS (Web Map Service)                        |
-           |   Layer Used     | `nw_dop_rgb`                                 |
-           |   Format         | `image/png`                                  |
-           |   Projection     | `EPSG:3857`                                  |
-           |   Transparency   | Supported (`transparent=true`)               |
-           |   Rendered By    | Leaflet `WMSTileLayer`                       |
- 
+  This project is frontend-only, so there are no internal API routes.
+  However, the assignment requires API documentation, so we document the external map service and client-     side actions that behave like API calls.
+   🌍 External WMS API (Used by MapView)
+| Field            | Details                                      |
+|------------------|----------------------------------------------|
+| **API Name**     | NRW Digital Orthophotos (WMS)                |
+| **Base URL**     | https://www.wms.nrw.de/geobasis/wms_nw_dop   |
+| **Layer Used**   | nw_dop_rgb                                   |
+| **Format**       | image/png                                    |
+| **Projection**   | EPSG:3857                                    |
+| **Type**         | Web Map Service (WMS)                        |
+| **Used Via**     | Leaflet WMSTileLayer                         |
+
+
   ## 🔧 Setup Steps
      Follow these steps to run the project locally:
       # 1. Clone the repository
