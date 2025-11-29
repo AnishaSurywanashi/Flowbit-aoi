@@ -1,9 +1,8 @@
 # 📌 Flowbit AOI Creation Interface
-This project is a complete, pixel-perfect implementation of the AOI (Area of Interest) Creation Interface, built as part of the Flowbit Frontend Engineer Internship Assignment. The goal of this project is to translate the provided Figma design into a functional, responsive, and interactive single-page application using modern frontend technologies.
+This project is a complete, pixel-perfect implementation of the AOI (Area of Interest) Creation Interface, built as part of the Flowbit Frontend Engineer Internship Assignment.
+The goal of this project is to translate the provided Figma design into a functional, responsive, and interactive single-page application using modern frontend technologies.
 
 The application enables users to explore a real-world map, view high-resolution WMS satellite imagery, toggle map layers, and interact with a clean, Figma-accurate UI. It is built using React, TypeScript, Vite, Tailwind CSS, and Leaflet, with client-side state management handled using React Context. Automated UI testing is implemented using Playwright, ensuring the correctness of key map interactions.
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 -- This project demonstrates strong skills in:
   • Converting Figma prototypes into real UI
@@ -15,6 +14,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
   • Writing clean, maintainable, production-ready code
   
 ## 🚀 Features
+
  🎨 Pixel-perfect UI
   • Follows Figma design exactly
   • Responsive layout
@@ -44,23 +44,28 @@ This template provides a minimal setup to get React working in Vite with HMR and
    I selected Leaflet (react-leaflet) as the map library because it provides native support for WMS layers,    which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
    integrates smoothly with React.
    
+   
   ✖ Alternatives Considered:
-     | Library                   | Why Not Selected                             |
-     | ------------------------- | -------------------------------------------- |
-     | **MapLibre GL**           | Best for vector tiles, limited WMS support   |
-     | **OpenLayers**            | Very powerful but too complex for this scope |
-     | **react-map-gl / Mapbox** | Vector-first, not suited for WMS             |
+    | Library                   | Why Not Selected                             |
+    |---------------------------|----------------------------------------------|
+    | **MapLibre GL**           | Best for vector tiles, limited WMS support   |
+    | **OpenLayers**            | Very powerful but too complex for this scope |
+    | **react-map-gl / Mapbox** | Vector-first, not suited for WMS             |
+
 
   📌 Leaflet provided the best balance of power, simplicity, and WMS support.
     
 ## 🏗️ Architecture Decisions
-  The app uses a clean, modular structure:
+
+    The app uses a clean, modular structure:
+  
     📁 Component Breakdown  
       1. Sidebar – app navigation
       2. AOIPanel – WMS toggle + AOI actions
       3. MapView – base map, WMS layer, labels layer, custom map controls
       4. AppContext – global state management
       5. Tests folder – Playwright tests
+      
     ## 📁 Folder Structure
            src/
             ├─ Components/
@@ -73,7 +78,8 @@ This template provides a minimal setup to get React working in Vite with HMR and
             │   └─ app.spec.ts
             ├─ App.tsx
             └─ main.tsx
-  -- Why this structure?
+            
+     -- Why this structure?
        • Clear separation of concerns
        •  Easy to extend in the future
        • Keeps map logic isolated for performance
@@ -81,20 +87,20 @@ This template provides a minimal setup to get React working in Vite with HMR and
  
 
  ## ⚡ Performance Considerations
-  ✔ Current optimizations:
+     ✔ Current optimizations:
         • Leaflet tile-based rendering
         • Minimal global state to reduce re-renders
         • Map instance created only once
         • Labels-only layer on top of satellite WMS
         • Conditional rendering of WMS layer
 
-   ✔ Future enhancements:
+     ✔ Future enhancements:
          • Marker clustering
          • Canvas/WebGL rendering for large datasets
          • Debounced pan/zoom events
          • Lazy loading AOI data
 ## 🧪Testing Strategy
-  ✔ Implemented Tests
+     ✔ Implemented Tests
        1. App Load Test
           Ensures Sidebar, AOIPanel, and Map render correctly
       2. WMS Toggle Test
@@ -104,7 +110,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
           ✓  1 src\tests\app.spec.ts:4:1 › App loads correctly with sidebar, AOI panel, and map (646ms)
           ✓  2 src\tests\app.spec.ts:28:1 › Layer toggle hides and shows WMS overlay tiles (1.1s)
 
-   ✔ Why these tests?
+     ✔ Why these tests?
           They validate the core acceptance criteria:
            • UI loads
            • Map loads
@@ -116,14 +122,15 @@ This template provides a minimal setup to get React working in Vite with HMR and
            • Component unit tests
            • Accessibility tests (keyboard navigation, ARIA roles)
            • Visual regression screenshot testing
-    ## 🔄 Tradeoffs Made
+          
+  ## 🔄 Tradeoffs Made
         • Used React Context instead of Zustand/Redux because state requirements were small.
         • Added a labels-only tile layer instead of custom text rendering for clarity.
         • Did not implement drawing tools due to time limitations.
         • Kept UI minimal and strictly matched to Figma without extra features.
         
 ## 🚀 Production Readiness
-  To prepare this project for production:
+    To prepare this project for production:
         • Add LocalStorage/state persistence for AOIs
         • Add WMS tile error handling
         • Add loading indicators for map tiles
@@ -131,6 +138,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
         • Improve accessibility (keyboard + ARIA)
         • Add authentication if needed
         • Expand Playwright test suite
+        
 ## ⏱️ Time Spent (Approx Breakdown)
       | Task                                 | Time       |
       | ------------------------------------ | ---------- |
@@ -156,6 +164,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
            | **Projection**   | `EPSG:3857`                                  |
            | **Transparency** | Supported (`transparent=true`)               |
            | **Rendered By**  | Leaflet `WMSTileLayer`                       |
+ 
   ## 🔧 Setup Steps
      Follow these steps to run the project locally:
       # 1. Clone the repository
