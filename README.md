@@ -40,17 +40,18 @@ The application enables users to explore a real-world map, view high-resolution 
   •  Playwright tests for UI and WMS layer behavior
   
 ## 📘 README Documentation
-  # 🗺️ Map Library Choice
-   I selected Leaflet (react-leaflet) as the map library because it provides native support for WMS layers,    which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
-   integrates smoothly with React.
+ 
+    # 🗺️ Map Library Choice
+      I selected Leaflet (react-leaflet) as the map library because it provides native support for WMS layers,   
+      which was essential for rendering the required satellite imagery. It is lightweight, simple, and     
+      integrates smoothly with React.
    
-   
-  ✖ Alternatives Considered:
-    | Library                   | Why Not Selected                             |
-    |---------------------------|----------------------------------------------|
-    | **MapLibre GL**           | Best for vector tiles, limited WMS support   |
-    | **OpenLayers**            | Very powerful but too complex for this scope |
-    | **react-map-gl / Mapbox** | Vector-first, not suited for WMS             |
+     ✖ Alternatives Considered:
+      | Library                   | Why Not Selected                             |
+      |---------------------------|----------------------------------------------|
+      | MapLibre GL               |Best for vector tiles, limited WMS support    |
+      | OpenLayers                | Very powerful but too complex for this scope |
+      | react-map-gl / Mapbox     | Vector-first, not suited for WMS             |
 
 
   📌 Leaflet provided the best balance of power, simplicity, and WMS support.
@@ -156,14 +157,14 @@ The application enables users to explore a real-world map, view high-resolution 
     🌍 External WMS API (Used by MapView)
     ]      | Feature          | Details                                      |
            | ---------------- | -------------------------------------------- |
-           | **Name**         | NRW Digital Orthophotos (WMS)                |
-           | **Base URL**     | `https://www.wms.nrw.de/geobasis/wms_nw_dop` |
-           | **Type**         | WMS (Web Map Service)                        |
-           | **Layer Used**   | `nw_dop_rgb`                                 |
-           | **Format**       | `image/png`                                  |
-           | **Projection**   | `EPSG:3857`                                  |
-           | **Transparency** | Supported (`transparent=true`)               |
-           | **Rendered By**  | Leaflet `WMSTileLayer`                       |
+           |   Name           | NRW Digital Orthophotos (WMS)                |
+           |   Base URL       | `https://www.wms.nrw.de/geobasis/wms_nw_dop` |
+           |   Type           | WMS (Web Map Service)                        |
+           |   Layer Used     | `nw_dop_rgb`                                 |
+           |   Format         | `image/png`                                  |
+           |   Projection     | `EPSG:3857`                                  |
+           |   Transparency   | Supported (`transparent=true`)               |
+           |   Rendered By    | Leaflet `WMSTileLayer`                       |
  
   ## 🔧 Setup Steps
      Follow these steps to run the project locally:
